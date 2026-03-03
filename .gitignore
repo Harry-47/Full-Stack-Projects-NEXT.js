@@ -1,23 +1,18 @@
-# 📂 Folders to Ignore
-node_modules/
-./*node_modules
-./*git.ignore
-./next*
-out/
-build/
-pre/
+# 📂 Folders to Ignore (Recursive)
+**/node_modules/
+**/.next/
+**/out/
+**/build/
 
-# 🔐 Environment Variables & Secrets (VERY IMPORTANT)
-./*env
-./*env.local
+# 🔐 Environment Variables (Any folder)
+**/.env
+**/.env.local
+**/.env.production
 
 # 🛠️ System Files
-/*DS_Store
-/*Thumbs.db
+.DS_Store
+Thumbs.db
 
-# 🧪 Debug & Logs
-/*npm-debug.log*
-/*yarn-debug.log*
-/*yarn-error.log*
-/*.pnpm-debug.log*
-
+# 🧪 Logs
+*.log
+npm-debug.log*
