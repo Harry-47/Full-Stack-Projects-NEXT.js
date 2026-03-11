@@ -1,10 +1,15 @@
 "use client";
 import { useState } from "react";
+import { Joke } from "../page";
 
-export default function JokeClient({ initialJoke }) {
-  const [joke, setJoke] = useState(initialJoke);
-  const [showPunchline, setShowPunchline] = useState(false);
-  const [loading, setLoading] = useState(false);
+interface JokeClientProps {
+  initialJoke: Joke;
+}
+
+export default function JokeClient({ initialJoke } : JokeClientProps) {
+  const [joke, setJoke] = useState<Joke>(initialJoke);
+  const [showPunchline, setShowPunchline] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   
   const fetchNextJoke = async () => {
@@ -12,6 +17,7 @@ export default function JokeClient({ initialJoke }) {
     setShowPunchline(false); // Reset punchline state for new joke
     try {
       const res = await fetch("https://official-joke-api.appspot.com/random_joke");
+      if (!res.ok) throw new Error("Failed to fetch");
       const data = await res.json();
       setJoke(data);
     } catch (err) {
@@ -35,11 +41,11 @@ export default function JokeClient({ initialJoke }) {
 
         {/* Punchline Section */}
         <div className="h-20 flex items-center justify-center">
-          {showPunchline && !loading && (
+          {(showPunchline && !loading) ?(
             <p className="text-green-400 text-2xl font-bold animate-bounce">
               {joke?.punchline}
             </p>
-          )}
+          ) : null}
         </div>
 
         {/* Buttons */}
