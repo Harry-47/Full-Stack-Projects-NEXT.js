@@ -1,5 +1,5 @@
-import Hero from "../../components/feature/home/Hero";
-import FeatureCard from "../../components/feature/home/FeatureCard";
+import Hero from "./components/feature/home/Hero";
+import FeatureCard from "./components/feature/home/FeatureCard";
 import { ShieldCheck, Search, Database } from "lucide-react";
 
 export const metadata = {
