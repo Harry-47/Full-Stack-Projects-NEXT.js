@@ -21,7 +21,7 @@ export default function Navbar({ title }) {
           signedIn={
             <div className="flex items-center gap-4">
               <Link
-                href="/dashboard"
+                href="/verify"
                 className="text-sm lg:text-2xl font-medium hover:text-blue-400 transition-colors"
               >
                Dashboard
